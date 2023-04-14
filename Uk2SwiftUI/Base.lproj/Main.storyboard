@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <action selector="showSwiftUIWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M1V-RM-CVu"/>
+                                    <action selector="showPrivacyAgreementViewWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M1V-RM-CVu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16l-e3-9Yf">
@@ -32,7 +32,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="person"/>
                                 <connections>
-                                    <action selector="showPesonCenterViewActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CHq-EK-JJO"/>
+                                    <action selector="showPersonCenterViewActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CHq-EK-JJO"/>
                                 </connections>
                             </button>
                         </subviews>

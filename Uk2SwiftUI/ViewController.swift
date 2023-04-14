@@ -15,27 +15,21 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = .red
     
   }
   
-  @IBAction func showSwiftUI(sender: Any?) {
-    configureCustomView()
+  @IBAction func showPrivacyAgreementView(sender: Any?) {
+    configurePrivacyAgreementView()
   }
   
-  @IBAction func showPesonCenterViewAction(sender: Any?) {
-    naviToPersonCenterView()
+  @IBAction func showPersonCenterViewAction(sender: Any?) {
+    naviToMyView()
   }
-  
-//  @IBSegueAction func toSwfitUIView(_ coder: NSCoder) -> UIViewController?  {
-//    return UIHostingController(coder: coder, rootView: SwiftUIView())
-//  }
 
-  func configureCustomView() {
+  func configurePrivacyAgreementView() {
     let sView = PrivacyAgreementView(agreeClosure: {}, cancelClosure: removeSheetView, lisenceClosure: {})
     let hostingController = UIHostingController(rootView: sView)
     
-//    self.addChild(hostingController)
     myView = hostingController.view
     self.view.addSubview(myView)
     myView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +39,6 @@ class ViewController: UIViewController {
 
             NSLayoutConstraint.activate([
               myView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//              myView.topAnchor.constraint(equalTo: view.topAnchor),
                 myView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 myView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 myView.heightAnchor.constraint(equalToConstant: 427)
@@ -56,29 +49,26 @@ class ViewController: UIViewController {
     myView.removeFromSuperview()
   }
   
-  func showPersonCenterView() {
-    let sView = PersonalCenterView()
+  func naviToMyView() {
+    let sView = PersonalCenterMyView(toQuestionView: naviToCommonQuestionView, toAboutView: naviToCommonQuestionView)
     let hostingController = UIHostingController(rootView: sView)
+    hostingController.title = "我的"
+   
+    let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    /// 为了让后面的ViewController不显示返回按钮的文字，
+    /// 需要将当前一个ViewController的backBarButtonItem文字设置成空
+    navigationItem.backBarButtonItem = backBarButton
     
-//    self.addChild(hostingController)
-    myView = hostingController.view
-    self.view.addSubview(myView)
-    myView.translatesAutoresizingMaskIntoConstraints = false
-    myView.backgroundColor = .clear
-            view.addSubview(myView)
-    myView.layer.cornerRadius = 24
-
-            NSLayoutConstraint.activate([
-              myView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-              myView.topAnchor.constraint(equalTo: view.topAnchor),
-                myView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                myView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//                myView.heightAnchor.constraint(equalToConstant: 427)
-            ])
+    /// 为了让后面的ViewController不显示返回按钮的文字，
+    /// 需要将当前一个ViewController的backBarButtonItem文字设置成空
+    /// 这里和上面所指的ViewController不同
+    hostingController.navigationItem.backBarButtonItem = backBarButton
+   
+    self.navigationController?.pushViewController(hostingController, animated: true)
   }
   
-  func naviToPersonCenterView() {
-    let sView = PersonalCenterView()
+  func naviToCommonQuestionView() {
+    let sView = PersonalCenterQuestionsView()
     let hostingController = UIHostingController(rootView: sView)
     hostingController.title = "常见问题"
     

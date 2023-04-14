@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let _ = (scene as? UIWindowScene) else { return }
+    
+    // For Back button customization, setup the custom image for UINavigationBar inside CustomBackButtonNavController.
+//    let backButtonBackgroundImage = UIImage(systemName: "list.bullet")
+    let backButtonBackgroundImage = UIImage(systemName: "chevron.backward")?.withTintColor(UIColor(named: "TextColor1")!, renderingMode: .alwaysOriginal)
+    let barAppearance =
+        UINavigationBar.appearance()
+    barAppearance.backIndicatorImage = backButtonBackgroundImage
+    barAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
+    
+    // Nudge the back UIBarButtonItem image down a bit.
+    let barButtonAppearance =
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UIHostingController<PersonalCenterMyView>.self])
+    barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -5), for: .default)
+    
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
