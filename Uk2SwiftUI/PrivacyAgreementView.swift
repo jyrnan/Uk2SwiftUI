@@ -30,6 +30,15 @@ struct PrivacyAgreementView: View {
   /// 用户协议及隐私跳转action
   var lisenceClosure: () -> Void
   
+  init(agreeClosure: @escaping () -> Void, cancelClosure: @escaping () -> Void, lisenceClosure: @escaping () -> Void) {
+  
+    self.agreeClosure = agreeClosure
+    self.cancelClosure = cancelClosure
+    self.lisenceClosure = lisenceClosure
+    UITextView.appearance().backgroundColor = .clear
+       
+  }
+ 
   var body: some View {
     VStack(spacing: 0) {
       /// 标题
@@ -40,10 +49,22 @@ struct PrivacyAgreementView: View {
       
       /// 协议内容
       ZStack {
-        TextEditor(text: $text)
+//
+        
+        if #available(iOS 16, *) {
+          TextEditor(text: $text)
+            .foregroundColor(.init("TextColor3"))
+            .padding(.top, 16)
           
-          .foregroundColor(.init("TextColor3"))
-          .padding(.top, 16)
+          .scrollContentBackground(.hidden) // <- Hide it
+          .background(Color.white)
+          } else {
+            TextEditor(text: $text)
+              .foregroundColor(.init("TextColor3"))
+              .padding(.top, 16)
+            
+            .background(Color.white)
+            }
           
         LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .bottom, endPoint: .top)
           .frame(height: 24)
@@ -83,10 +104,12 @@ struct PrivacyAgreementView: View {
               isChecked.toggle()
             }
           } label: {
-            Image(systemName: isChecked ? "checkmark.circle.fill" : "checkmark.circle").foregroundColor(isChecked ? .accentColor : .gray)
+            Image(systemName: isChecked ? "checkmark.circle.fill" : "checkmark.circle")
+              .foregroundColor(isChecked ? .accentColor : .gray)
           }
           
           Text("已阅读并同意")
+            .foregroundColor(.init("TextColor1"))
             .fixedSize()
           
           Button {

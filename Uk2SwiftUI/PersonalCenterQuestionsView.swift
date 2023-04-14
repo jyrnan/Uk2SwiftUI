@@ -17,15 +17,16 @@ struct PersonalCenterQuestionsView: View {
         }
       }
     }
-    .background(Color("BgColor1"))
+    .background(Color("BgColor1").ignoresSafeArea())
   }
 }
 
 struct PersonalCenterView_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      
       PersonalCenterQuestionsView()
+        .navigationTitle("常见问题")
+        .navigationBarTitleDisplayMode(.inline)
     }
   }
 }
@@ -44,7 +45,7 @@ struct CellView: View {
         } label: {
           Text(qaText.question)
             .font(.body)
-            .foregroundColor(.primary)
+            .foregroundColor(.init("TextColor1"))
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(Rectangle())
