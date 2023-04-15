@@ -35,7 +35,7 @@ struct PrivacyAgreementView: View {
     self.agreeClosure = agreeClosure
     self.cancelClosure = cancelClosure
     self.lisenceClosure = lisenceClosure
-    UITextView.appearance().backgroundColor = .clear
+    UITextView.appearance().backgroundColor = .red
        
   }
  
@@ -51,21 +51,25 @@ struct PrivacyAgreementView: View {
       ZStack {
 //
         
-        if #available(iOS 16, *) {
-          TextEditor(text: $text)
+//        if #available(iOS 16, *) {
+//          TextEditor(text: .constant(self.text))
+//            .foregroundColor(.init("TextColor3"))
+//            .padding(.top, 16)
+//          .scrollContentBackground(.hidden) // <- Hide it
+//          .background(Color.white)
+//          } else {
+//            TextEditor(text: $text)
+//              .foregroundColor(.init("TextColor3"))
+//              .padding(.top, 16)
+//
+//            .background(Color.white)
+//            }
+        ScrollView {
+          Text(text).lineLimit(nil)
             .foregroundColor(.init("TextColor3"))
-            .padding(.top, 16)
-          
-          .scrollContentBackground(.hidden) // <- Hide it
-          .background(Color.white)
-          } else {
-            TextEditor(text: $text)
-              .foregroundColor(.init("TextColor3"))
-              .padding(.top, 16)
-            
-            .background(Color.white)
-            }
-          
+                       
+        }.padding(.top, 16)
+        
         LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .bottom, endPoint: .top)
           .frame(height: 24)
           .frame(maxHeight: .infinity, alignment: .bottom)
@@ -111,6 +115,7 @@ struct PrivacyAgreementView: View {
           Text("已阅读并同意")
             .foregroundColor(.init("TextColor1"))
             .fixedSize()
+            .frame(maxWidth: .infinity, alignment: .leading)
           
           Button {
             lisenceClosure()
