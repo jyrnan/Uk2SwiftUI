@@ -115,7 +115,7 @@ struct PrivacyAgreementView: View {
           Text("已阅读并同意")
             .foregroundColor(.init("TextColor1"))
             .fixedSize()
-            .frame(maxWidth: .infinity, alignment: .leading)
+            
           
           Button {
             lisenceClosure()
@@ -123,6 +123,7 @@ struct PrivacyAgreementView: View {
             Text("《用户协议及隐私政策》")
               .foregroundColor(.init("BrandColor1"))
               .fixedSize()
+              .frame(maxWidth: .infinity, alignment: .leading)
           }
         }
       }
