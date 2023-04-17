@@ -49,28 +49,14 @@ struct PrivacyAgreementView: View {
       
       /// 协议内容
       ZStack {
-//
-        
-//        if #available(iOS 16, *) {
-//          TextEditor(text: .constant(self.text))
-//            .foregroundColor(.init("TextColor3"))
-//            .padding(.top, 16)
-//          .scrollContentBackground(.hidden) // <- Hide it
-//          .background(Color.white)
-//          } else {
-//            TextEditor(text: $text)
-//              .foregroundColor(.init("TextColor3"))
-//              .padding(.top, 16)
-//
-//            .background(Color.white)
-//            }
+
         ScrollView {
           Text(text).lineLimit(nil)
             .foregroundColor(.init("TextColor3"))
                        
         }.padding(.top, 16)
         
-        LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .bottom, endPoint: .top)
+        LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0.01)]), startPoint: .bottom, endPoint: .top)
           .frame(height: 24)
           .frame(maxHeight: .infinity, alignment: .bottom)
       }
@@ -149,7 +135,7 @@ struct PrivacyAgreementView: View {
         cancelClosure()
       } label: {
         Text("退出")
-          .foregroundColor(.primary)
+          .foregroundColor(.init("TextColor1"))
           .frame(height: 44)
           .frame(maxWidth: .infinity)
           .background(Color("BgColor4"))
