@@ -50,7 +50,7 @@ struct AboutView: View {
       } label: {
         HStack(spacing: 0) {
           Text("版本更新")
-            .font(.system(size: 20))
+            .font(.system(size: 16))
             .foregroundColor(.init("TextColor1"))
             .frame(maxWidth: .infinity, alignment: .leading)
           
@@ -61,7 +61,7 @@ struct AboutView: View {
                 .frame(width: 7, height: 7)
               
               Text("发现新版本")
-                .font(.system(size: 20))
+                .font(.system(size: 16))
                 .foregroundColor(.init("TextColor3"))
             
               Image("10个人中心_ic_Arrow")
@@ -71,7 +71,7 @@ struct AboutView: View {
             }
           } else {
             Text(vm.isCheckingVersion ? "检查中..." : "已是最新版本")
-              .font(.system(size: 20))
+              .font(.system(size: 16))
               .foregroundColor(.init("TextColor3"))
           }
         }
@@ -92,6 +92,7 @@ struct AboutView: View {
             url = "https://www.konka.com"
           } label: {
             Text("官方网站")
+              .font(.system(size: 12))
               .foregroundColor(.init("BrandColor1"))
               .fixedSize()
               .padding(.trailing, 13)
@@ -105,6 +106,7 @@ struct AboutView: View {
             url = "https://www.apple.com"
           } label: {
             Text("隐私协议")
+              .font(.system(size: 12))
               .foregroundColor(.init("BrandColor1"))
               .fixedSize()
               .padding(.leading, 13)
@@ -112,11 +114,13 @@ struct AboutView: View {
           }
         }
           
-        Text("康佳电子科技有限公司 版权所有")
+        Text("康佳电子科技有限公司  版权所有")
+          .font(.system(size: 12))
           .padding(.top, 6)
           .foregroundColor(.init("TextColor4"))
             
         Text("Rights Reserved")
+          .font(.system(size: 12))
           .padding(.top, 5)
           .foregroundColor(.init("TextColor4"))
       }

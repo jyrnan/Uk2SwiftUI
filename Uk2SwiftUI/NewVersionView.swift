@@ -27,18 +27,19 @@ struct NewVersionView: View {
             .padding(.top, 33)
           
           Text("发现新版本")
+            .font(.system(size: 18))
             .foregroundColor(.init("TextColor1"))
             .padding(.top, 6)
           
           Text(vm.newVersionInfo?.version ?? "1.0.0")
-            .font(.caption)
+            .font(.system(size: 14))
             .foregroundColor(.init("TextColor1"))
             .padding(.top, 1)
           
           ScrollView(showsIndicators: false) {
             Text(vm.newVersionInfo?.releaseNotes ?? "Bug fixed")
+              .font(.system(size: 16))
               .foregroundColor(.init("TextColor2"))
-              
               .padding(.horizontal, 12) // 文字在VStack锁进基础上再缩进12
             .frame(maxWidth: .infinity, alignment: .leading)
           }
@@ -51,6 +52,7 @@ struct NewVersionView: View {
               vm.showNewVersionView = false
             } label: {
               Text("取消")
+                .font(.system(size: 16))
                 .foregroundColor(.init("TextColor1"))
                 .frame(height: 44)
                 .frame(maxWidth: .infinity)
@@ -65,7 +67,9 @@ struct NewVersionView: View {
                             }
                           }
             } label: {
-              Text("立即更新").foregroundColor(.white)
+              Text("立即更新")
+                .font(.system(size: 16))
+                .foregroundColor(.white)
                 .frame(height: 44)
                 .frame(maxWidth: .infinity)
                 .background(Color("BrandColor1"))

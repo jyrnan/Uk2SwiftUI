@@ -56,9 +56,7 @@ struct CellView: View {
         .buttonStyle(ScrollViewGestureButtonStyle(pressAction: {
           withAnimation {
             isHover.toggle()
-
           }
-          
         }))
         
         Image("10个人中心_ic_Arrow")
