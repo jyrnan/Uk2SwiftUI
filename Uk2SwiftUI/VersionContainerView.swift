@@ -64,7 +64,7 @@ class VersionCheckViewModel: ObservableObject {
   
   @Published var isCheckingVersion = false
   let currentVersion: String = "1.0.0"
-  let url = "https://itunes.apple.com/lookup?id=1523021399"
+  let url = "https://itunes.apple.com/lookup?id=6447176780"
   
   func checkNewVersion() {
     self.isCheckingVersion = true
@@ -72,10 +72,11 @@ class VersionCheckViewModel: ObservableObject {
     
     let dataTask = URLSession.shared.dataTask(with: URLRequest(url: URL(string: url)!)) { data, response, error in
       if let data = data {
-        if let versionResult = try? JSONDecoder().decode(VersionResult.self, from: data), let newVersionInfo = versionResult.results.first {
+        if let versionResult = try? JSONDecoder().decode(VersionResult.self, from: data){
           
           DispatchQueue.main.async{
-            if newVersionInfo.version > self.currentVersion {
+            
+            if let newVersionInfo = versionResult.results.first,  newVersionInfo.version > self.currentVersion {
               self.newVersionInfo = newVersionInfo
             }
             self.isCheckingVersion = false
