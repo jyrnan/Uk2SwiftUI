@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PersonalCenterQuestionsView: View {
+  
   var body: some View {
     ScrollView {
       VStack (spacing: 0){
@@ -17,7 +18,9 @@ struct PersonalCenterQuestionsView: View {
         }
       }
     }
-    .background(Color("BgColor1").ignoresSafeArea())
+    .navigationTitle("常见问题")
+      .navigationBarTitleDisplayMode(.inline)
+      .background(Color("BgColor1").ignoresSafeArea(edges: .bottom))
   }
 }
 

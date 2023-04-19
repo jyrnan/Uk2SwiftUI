@@ -74,6 +74,15 @@ class ViewController: UIViewController {
     
     self.navigationController?.pushViewController(hostingController, animated: true)
   }
+  
+//  func naviToVersionCheckView() {
+//    let sView = AboutView(showNewVersionView: true)
+//    let hostingController = UIHostingController(rootView: sView)
+//    hostingController.title = "关于"
+//
+//    self.navigationController?.pushViewController(hostingController, animated: true)
+//  }
+
 
 }
 

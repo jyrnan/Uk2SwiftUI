@@ -20,13 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let _ = (scene as? UIWindowScene) else { return }
     
     // For Back button customization, setup the custom image for UINavigationBar inside CustomBackButtonNavController.
-//    let backButtonBackgroundImage = UIImage(systemName: "list.bullet")
     let backButtonBackgroundImage = UIImage(systemName: "chevron.backward")?.withTintColor(UIColor(named: "TextColor1")!, renderingMode: .alwaysOriginal)
     let barAppearance =
         UINavigationBar.appearance()
     barAppearance.backIndicatorImage = backButtonBackgroundImage
     barAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
-    
+
     // Nudge the back UIBarButtonItem image down a bit.
     let barButtonAppearance =
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UIHostingController<PersonalCenterMyView>.self])
