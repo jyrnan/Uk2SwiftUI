@@ -130,6 +130,7 @@ struct AboutView: View {
     }
     .navigationTitle("关于")
     .navigationBarTitleDisplayMode(.inline)
+    .navigationBarColor(backgroundColor: .white, titleColor: .init(named: "TextColor1"))
     .fullScreenCover(item: $url, content: { url in
       if let url = URL(string: url) {
         SafariView(url: url)
