@@ -62,23 +62,28 @@ struct AboutView: View {
             .foregroundColor(.init("TextColor1"))
             .frame(maxWidth: .infinity, alignment: .leading)
           
+          if hasNewVersion {
           HStack {
             Circle()
               .fill(.red)
               .frame(width: 7, height: 7)
-              .opacity(hasNewVersion ? 1 : 0)
             
-            Text(vm.isCheckingVersion ? "检查中..." : (hasNewVersion ? "发现新版本" : "已是最新版本"))
+            Text("发现新版本")
               .font(.custom("PingFangSC-Regular", size: 16))
               .foregroundColor(.init("TextColor3"))
               .animation(hasNewVersion ? .default : .none) //避免“已是最新版本”时发生位移动画
           
-          if hasNewVersion {
+          
               Image("10个人中心_ic_Arrow")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 18, height: 18)
             }
+          } else {
+            Text(vm.isCheckingVersion ? "检查中..." :  "已是最新版本")
+              .font(.custom("PingFangSC-Regular", size: 16))
+              .foregroundColor(.init("TextColor3"))
+              .animation(hasNewVersion ? .default : .none) //避免“已是最新版本”时发生位移动画
           }
         }
         .padding(.vertical, 19)

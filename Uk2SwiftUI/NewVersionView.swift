@@ -20,7 +20,7 @@ struct NewVersionView: View {
           .ignoresSafeArea()
         
         VStack(spacing: 0) {
-          Image("10个人中心_ic_发现新版本")
+          Image("searchNewVersion")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: 89, height: 89)

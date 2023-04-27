@@ -34,7 +34,7 @@ struct PersonalCenterMyView: View {
   
   var body: some View {
     ZStack {
-      Image("Bg_主页背景")
+      Image("Main_backGroundImg")
         .resizable()
         .ignoresSafeArea()
       
