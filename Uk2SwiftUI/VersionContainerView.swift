@@ -12,7 +12,8 @@ struct VersionContainerView: View {
   
   @StateObject var vm = VersionCheckViewModel()
   
-  @State var newVersionViewHeight: CGFloat = 340
+  //TODO: - 弹窗高度可变？
+  @State var newVersionViewHeight: CGFloat = 370
   
     var body: some View {
       ZStack(alignment: .bottom){
@@ -28,7 +29,9 @@ struct VersionContainerView: View {
       }
       .ignoresSafeArea(edges: .bottom)
       .animation(.default, value: vm.showNewVersionView)
-      .onAppear(perform: vm.checkNewVersion)
+      .onAppear{
+        vm.checkNewVersion()
+      }
     }
 }
 
@@ -64,16 +67,18 @@ class VersionCheckViewModel: ObservableObject {
   
   @Published var isCheckingVersion = false
   let currentVersion: String = "1.0.0"
-  let url = "https://itunes.apple.com/lookup?id=6447176780"
   
-  func checkNewVersion() {
+  
+  func checkNewVersion(id: String = "6447176780") {
+    
+    let url = "https://itunes.apple.com/lookup?id=" + id //6447176780 小康在家1523021399
     self.isCheckingVersion = true
-    print("Checking new version")
+    print("Checking new version ID: \(id)")
     
     let dataTask = URLSession.shared.dataTask(with: URLRequest(url: URL(string: url)!)) { data, response, error in
       if let data = data {
         if let versionResult = try? JSONDecoder().decode(VersionResult.self, from: data){
-          
+          print(String(data: data, encoding: .utf8))
           DispatchQueue.main.async{
             
             if let newVersionInfo = versionResult.results.first,  newVersionInfo.version > self.currentVersion {
@@ -81,6 +86,14 @@ class VersionCheckViewModel: ObservableObject {
             }
             self.isCheckingVersion = false
           }
+        }
+      }
+      
+      ///  出错判断为没有更新版本
+      if error != nil {
+        DispatchQueue.main.async{
+          self.newVersionInfo = nil
+          self.isCheckingVersion = false
         }
       }
     }

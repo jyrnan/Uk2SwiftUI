@@ -83,7 +83,7 @@ struct PrivacyAgreementView: View {
       /// 阅读同意
       ZStack(alignment: .top) {
         /// 请先勾选气泡图
-        ZStack {
+        ZStack() {
           Image("隐私协议_勾选提示_bg")
             .resizable()
             .aspectRatio(contentMode: .fill)
@@ -100,6 +100,7 @@ struct PrivacyAgreementView: View {
               .fixedSize()
               .font(.system(size: 14))
           }
+          .offset(y: -3)
         }
         .opacity((!showBubbleView || isChecked) ? 0 : 1)
         .frame(maxWidth: .infinity, alignment: .topLeading)

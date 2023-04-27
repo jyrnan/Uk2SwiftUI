@@ -86,19 +86,23 @@ struct CellView: View {
   @State var showContent: Bool = false
   @GestureState var press: Bool = false
   @State var isHover: Bool = false
+  
+  @State var borderClor: Color = .clear
+  
   var body: some View {
-    VStack {
-      HStack {
+    VStack(spacing: 0) {
+      HStack(spacing: 0) {
 
         Button {
           withAnimation{showContent.toggle()}
         } label: {
           Text(qaText.question)
-            .font(.body)
+            .font(.custom("PingFangSC-Regular", size: 16))
             .foregroundColor(.init("TextColor1"))
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(Rectangle())
+            .padding(.trailing, 16)
         }
         .buttonStyle(ScrollViewGestureButtonStyle(pressAction: {
           withAnimation {
@@ -112,30 +116,41 @@ struct CellView: View {
           .frame(width: 18, height: 18)
           .rotationEffect(.degrees(showContent ? 270 : 90))
       }
+      .padding(.horizontal, 18)
+      .padding(.top, 20)
+      .padding(.bottom, showContent ? 12 : 20)
 
       if showContent {
-        VStack(alignment: .leading) {
-          Divider().padding(.horizontal, 0)
+        VStack(alignment: .leading, spacing: 0) {
+          Divider()
+            .foregroundColor(.init("LineColor1"))
+            .padding(.horizontal, 0)
 
           Text(qaText.answer)
             .foregroundColor(.init("TextColor3"))
-            .font(.callout)
+            .font(.custom("PingFangSC-Regular", size: 14))
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.top, 8)
+            .padding(.leading, 18)
+            .padding(.trailing, 30)
+            .padding(.bottom, 20)
         }
         .transition(.asymmetric(insertion: .opacity.animation(.default.delay(0.3)), removal: .opacity))
       }
     }
-    .padding()
     .frame(maxWidth: .infinity)
     .background(
       RoundedRectangle(cornerSize: CGSize(width: 16, height: 16))
         .fill(isHover ? .init("BgColor3") : Color.white)
-      .shadow(color: .gray.opacity(0.2), radius: 8, x: 0, y: 8))
-    .padding(.horizontal)
+      )
+    .padding(.horizontal, 16)
     .padding(.top, 10)
   }
 }
 
 
+/// 解决按钮悬停状态下的底色问题
+/// 其实就是按下适合执行action
 struct ScrollViewGestureButtonStyle: ButtonStyle {
 
     init(
@@ -168,16 +183,16 @@ extension PersonalCenterQuestionsView {
             answer: "将手机与设备连接同一个WiFi/局域网；点击上方的【连接设备】，即可搜索同一WiFi下的设备，点击具体设备即可连接"),
       
         .init(question: "如何检查手机与设备的网络连接是否正常？",
-            answer: "（1）检查手机与设备的IP地址前三部分，若相同，则说明已在同一局域网下（如：192.168.1.xxx），若不同，请重新连接同一网络，或者检查网络设置。\n\n（2）在【遥控】界面，点击下方侧边按钮，可切换“遥控模式”、“鼠标模式”，还可以切换控制面板的位置。"),
+            answer: "（1）检查手机与设备的IP地址前三部分，若相同，则说明已在同一局域网下（如：192.168.1.xxx），若不同，请重新连接同一网络，或者检查网络设置。\n（2）在【遥控】界面，点击下方侧边按钮，可切换“遥控模式”、“鼠标模式”，还可以切换控制面板的位置。"),
       
         .init(question: "如何操控设备？",
-            answer: "（1）连接设备成功后，点击下方的【遥控】按钮，即可进行设备操控。\n\n（2）在【遥控】界面，点击下方侧边按钮，可切换“遥控模式”、“鼠标模式”，还可以切换控制面板的位置。"),
+            answer: "（1）连接设备成功后，点击下方的【遥控】按钮，即可进行设备操控。\n（2）在【遥控】界面，点击下方侧边按钮，可切换“遥控模式”、“鼠标模式”，还可以切换控制面板的位置。"),
       
         .init(question: "如何将设备画面投屏到手机上？",
             answer: "手机连接设备成功后，点击【传屏到手机】功能，即可将设备画面传屏到手机上，并在手机上进行设备操控。"),
       
         .init(question: "使用【镜像投屏】时，设备怎么没声音？",
-            answer: "（1）Android 10及以上开启录音权限即可录制手机系统声音\n\n（2）Android 10以下，由于大部分手机系统权限限制，导致在手机镜像时，不支持手机声音在设备上播放。"),
+            answer: "（1）Android 10及以上开启录音权限即可录制手机系统声音\n（2）Android 10以下，由于大部分手机系统权限限制，导致在手机镜像时，不支持手机声音在设备上播放。"),
       
         .init(question: "投屏时黑屏是为什么？",
             answer: "部分内容因版权保护，不支持投屏"),
