@@ -118,6 +118,7 @@ struct PersonalCenterMyView: View {
         }.padding(.top, 14)
       }
     }
+    .navigationBarBackButtonHidden()
   }
   
 }

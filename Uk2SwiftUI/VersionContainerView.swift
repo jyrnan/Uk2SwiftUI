@@ -13,7 +13,7 @@ struct VersionContainerView: View {
   @StateObject var vm = VersionCheckViewModel()
   
   //TODO: - 弹窗高度可变？
-  @State var newVersionViewHeight: CGFloat = 370
+  @State var newVersionViewHeight: CGFloat = 0
   
     var body: some View {
       ZStack(alignment: .bottom){
@@ -22,8 +22,11 @@ struct VersionContainerView: View {
         Color.black
           .opacity(vm.showNewVersionView ? 0.6 : 0)
           .ignoresSafeArea()
+          .onTapGesture {
+            vm.showNewVersionView = false
+          }
         
-        NewVersionView(vm: vm)
+        NewVersionView(vm: vm, newVersionViewHeight: $newVersionViewHeight)
           .frame(height: newVersionViewHeight)
           .offset(y: vm.showNewVersionView ? 0 : newVersionViewHeight )
       }
@@ -78,7 +81,6 @@ class VersionCheckViewModel: ObservableObject {
     let dataTask = URLSession.shared.dataTask(with: URLRequest(url: URL(string: url)!)) { data, response, error in
       if let data = data {
         if let versionResult = try? JSONDecoder().decode(VersionResult.self, from: data){
-          print(String(data: data, encoding: .utf8))
           DispatchQueue.main.async{
             
             if let newVersionInfo = versionResult.results.first,  newVersionInfo.version > self.currentVersion {

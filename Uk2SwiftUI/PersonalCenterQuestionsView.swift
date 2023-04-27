@@ -67,7 +67,7 @@ struct PersonalCenterQuestionsView: View {
     .navigationTitle("常见问题")
       .navigationBarTitleDisplayMode(.inline)
       .background(Color("BgColor1").ignoresSafeArea(edges: .bottom))
-      .navigationBarColor(backgroundColor: .white, titleColor:UIColor.red//.init(named: "TextColor1")
+      .navigationBarColor(backgroundColor: .white, titleColor:.init(named: "TextColor1")
       )
   }
 }
@@ -119,7 +119,7 @@ struct CellView: View {
       }
       .padding(.horizontal, 18)
       .padding(.top, 20)
-      .padding(.bottom, showContent ? 12 : 20)
+      .padding(.bottom, showContent ? 12 : 20)// 展开和收起时候距离下边沿的高度不同
 
       if showContent {
         VStack(alignment: .leading, spacing: 0) {
