@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     myView.translatesAutoresizingMaskIntoConstraints = false
     myView.backgroundColor = .clear
             view.addSubview(myView)
-    myView.layer.cornerRadius = 24
+//    myView.layer.cornerRadius = 24
 
             NSLayoutConstraint.activate([
               myView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -43,6 +43,7 @@ class ViewController: UIViewController {
                 myView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 myView.heightAnchor.constraint(equalToConstant: 427)
             ])
+//    myView.frame = CGRect(x: 50, y: UIScreen.main.bounds.height - 427, width: UIScreen.main.bounds.width - 100, height: 427)
   }
   
   func removeSheetView() {

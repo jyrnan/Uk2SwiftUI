@@ -118,7 +118,7 @@ struct PrivacyAgreementView: View {
           
           Text("已阅读并同意: ")
             .foregroundColor(.init("TextColor1"))
-            .font(.custom("PingFangSC-Regular", size: 16))
+            .font(.custom("PingFangSC-Regular", size: 15))
             .fixedSize()
             .padding(.leading, 7)
             
@@ -126,9 +126,10 @@ struct PrivacyAgreementView: View {
             lisenceClosure()
           } label: {
             Text("《用户协议及隐私政策》")
-              .font(.custom("PingFangSC-Regular", size: 16))
+              .font(.custom("PingFangSC-Regular", size: 15))
               .foregroundColor(.init("BrandColor1"))
-              .fixedSize()
+              .lineLimit(1)
+//              .fixedSize()
               .frame(maxWidth: .infinity, alignment: .leading)
           }
         }
@@ -136,6 +137,7 @@ struct PrivacyAgreementView: View {
       }
       .border(borderColor)
       .padding(.top, 4)
+      .padding(.trailing, -5) //增加一点空间提供给文字防止空间不够折叠内容
       
       /// 同意按钮
       ZStack {
