@@ -12,7 +12,7 @@ struct VersionContainerView: View {
   
   @StateObject var vm = VersionCheckViewModel()
   
-  //TODO: - 弹窗高度可变？
+  /// 弹窗高度值
   @State var newVersionViewHeight: CGFloat = 0
   
     var body: some View {

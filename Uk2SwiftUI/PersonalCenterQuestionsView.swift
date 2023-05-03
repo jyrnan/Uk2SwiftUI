@@ -85,7 +85,6 @@ struct PersonalCenterView_Previews: PreviewProvider {
 struct CellView: View {
   var qaText: QAText
   @State var showContent: Bool = false
-  @GestureState var press: Bool = false
   @State var isHover: Bool = false
   
   @State var borderClor: Color = .clear

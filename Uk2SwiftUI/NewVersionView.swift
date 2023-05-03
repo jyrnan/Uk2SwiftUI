@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+struct TextHeightKey: PreferenceKey {
+  static var defaultValue: CGFloat = 0
+  
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+    value = value + nextValue()
+  }
+}
+
 struct NewVersionView: View {
   @ObservedObject var vm: VersionCheckViewModel
   @Environment(\.openURL) private var openURL // 引入环境值
@@ -33,7 +41,6 @@ struct NewVersionView: View {
     return text
   }
 
-  /// <#Description#>
   var body: some View {
     ZStack(alignment: .top) {
       RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
@@ -127,10 +134,4 @@ struct NewVersionView_Previews: PreviewProvider {
   }
 }
 
-struct TextHeightKey: PreferenceKey {
-  static var defaultValue: CGFloat = 0
-  
-  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-    value = value + nextValue()
-  }
-}
+
