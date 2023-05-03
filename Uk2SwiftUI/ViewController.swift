@@ -27,7 +27,7 @@ class ViewController: UIViewController {
   }
 
   func configurePrivacyAgreementView() {
-    let sView = PrivacyAgreementView(agreeClosure: {}, cancelClosure: removeSheetView, lisenceClosure: {})
+    let sView = PrivacyAgreementView(agreeClosure: {}, cancelClosure: removeSheetView, licenseClosure: {})
     let hostingController = UIHostingController(rootView: sView)
     
     myView = hostingController.view
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
   }
   
   func naviToMyView() {
-    let sView = PersonalCenterMyView(toQuestionView: naviToCommonQuestionView, toAboutView: naviToCommonQuestionView)
+    let sView = PersonalCenterMyView()
     let hostingController = UIHostingController(rootView: sView)
     hostingController.title = "我的"
    
@@ -74,6 +74,7 @@ class ViewController: UIViewController {
     hostingController.title = "常见问题"
     
     self.navigationController?.pushViewController(hostingController, animated: true)
+    
   }
   
 //  func naviToVersionCheckView() {

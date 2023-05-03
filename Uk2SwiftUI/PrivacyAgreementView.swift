@@ -28,12 +28,12 @@ struct PrivacyAgreementView: View {
   var cancelClosure: () -> Void
   
   /// 用户协议及隐私跳转action
-  var lisenceClosure: () -> Void
+  var licenseClosure: () -> Void
   
-  init(agreeClosure: @escaping () -> Void, cancelClosure: @escaping () -> Void, lisenceClosure: @escaping () -> Void) {
+  init(agreeClosure: @escaping () -> Void, cancelClosure: @escaping () -> Void, licenseClosure: @escaping () -> Void) {
     self.agreeClosure = agreeClosure
     self.cancelClosure = cancelClosure
-    self.lisenceClosure = lisenceClosure
+    self.licenseClosure = licenseClosure
     UITextView.appearance().backgroundColor = .red
   }
  
@@ -123,7 +123,7 @@ struct PrivacyAgreementView: View {
             .padding(.leading, 7)
             
           Button {
-            lisenceClosure()
+            licenseClosure()
           } label: {
             Text("《用户协议及隐私政策》")
               .font(.custom("PingFangSC-Regular", size: 15))
@@ -197,7 +197,7 @@ struct PrivacyAgreementView: View {
 
 struct PrivacyAgreementView_Previews: PreviewProvider {
   static var previews: some View {
-    PrivacyAgreementView(agreeClosure: {}, cancelClosure: {}, lisenceClosure: {})
+    PrivacyAgreementView(agreeClosure: {}, cancelClosure: {}, licenseClosure: {})
   }
 }
 
