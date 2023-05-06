@@ -106,7 +106,7 @@ struct AboutView: View {
       VStack(spacing: 0) {
         HStack(spacing: 0) {
           Button {
-            url = "https://www.konka.com"
+            url = "https://imp.aphaea.cn/screen/"
           } label: {
             Text("官方网站")
               .font(.system(size: 12))
@@ -120,7 +120,7 @@ struct AboutView: View {
             .frame(height: 15)
             
           Button {
-            url = "https://www.apple.com"
+            url = "https://imp.aphaea.cn/screen/privacy.html"
           } label: {
             Text("隐私协议")
               .font(.system(size: 12))
