@@ -13,7 +13,7 @@ struct PersonalCenterMyView: View {
   @State var selection: Int? = nil
 
   var body: some View {
-    ZStack {
+    ZStack(alignment: .top) {
       Image("Main_backGroundImg")
         .resizable()
         .ignoresSafeArea()
@@ -22,7 +22,7 @@ struct PersonalCenterMyView: View {
         .opacity(0.5)
         .ignoresSafeArea()
       
-      ScrollView {
+//      ScrollView {
         VStack(spacing: 10) {
 
           HoverButton(image: "10个人中心_ic_常见问题", text: "常见问题") {
@@ -42,9 +42,13 @@ struct PersonalCenterMyView: View {
           })
          
         }.padding(.top, 14)
-      }
+//      }
     }
+    .navigationBarColor(backgroundColor: .clear, titleColor:.init(named: "TextColor1")
+    )
     .navigationBarBackButtonHidden()
+    .navigationTitle("我的")
+    .navigationBarTitleDisplayMode(.inline)
   }
   
 }

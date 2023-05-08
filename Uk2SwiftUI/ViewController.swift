@@ -53,7 +53,7 @@ class ViewController: UIViewController {
   func naviToMyView() {
     let sView = PersonalCenterMyView()
     let hostingController = UIHostingController(rootView: sView)
-    hostingController.title = "我的"
+//    hostingController.title = "我的"
    
     let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     /// 为了让后面的ViewController不显示返回按钮的文字，
