@@ -44,11 +44,11 @@ struct PersonalCenterMyView: View {
         }.padding(.top, 14)
 //      }
     }
-    .navigationBarColor(backgroundColor: .clear, titleColor:.init(named: "TextColor1")
-    )
-    .navigationBarBackButtonHidden()
+    
+//    .navigationBarBackButtonHidden()
     .navigationTitle("我的")
     .navigationBarTitleDisplayMode(.inline)
+    .navigationBarColor(backgroundColor: .clear, titleColor:.init(named: "TextColor1"))
   }
   
 }

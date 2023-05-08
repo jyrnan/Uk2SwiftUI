@@ -44,10 +44,7 @@ struct VersionContainerView_Previews: PreviewProvider {
         VersionContainerView()
 
       }
-      NavigationView {
-        VersionContainerView()
-        
-      }
+      
     }
 }
 
