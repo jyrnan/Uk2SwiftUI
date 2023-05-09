@@ -51,21 +51,31 @@ class ViewController: UIViewController {
     myView.removeFromSuperview()
   }
   
+  @objc func leftBarClicked() {
+    self.navigationController?.popViewController(animated: true)
+  }
+  
   func naviToMyView() {
+    
+    let leftBtn = UIButton.init(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+            leftBtn.addTarget(self, action: #selector(leftBarClicked), for: .touchUpInside)
+            leftBtn.setBackgroundImage(UIImage.init(named: "NavBackIcon"), for: .normal)
+            let leftItem = UIBarButtonItem.init(customView: leftBtn)
+    
     let sView = PersonalCenterMyView()
     let hostingController = UIHostingController(rootView: sView)
 //    hostingController.title = "我的"
-   
-//    let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+   let arrowImg = UIImage(systemName: "chevron.backward")?.withTintColor(UIColor(named: "TextColor1")!, renderingMode: .alwaysOriginal)
+    let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    let imageBackBarButton = UIBarButtonItem(image: arrowImg, style: .plain, target: nil, action: nil)
     /// 为了让后面的ViewController不显示返回按钮的文字，
     /// 需要将当前一个ViewController的backBarButtonItem文字设置成空
-//    navigationItem.backBarButtonItem = backBarButton
+    navigationItem.backBarButtonItem = backBarButton
     
     /// 为了让后面的ViewController不显示返回按钮的文字，
     /// 需要将当前一个ViewController的backBarButtonItem文字设置成空
     /// 这里和上面所指的ViewController不同
-//    hostingController.navigationItem.backBarButtonItem = backBarButton
-   
+    hostingController.navigationItem.backBarButtonItem = backBarButton
     self.navigationController?.pushViewController(hostingController, animated: true)
   }
   

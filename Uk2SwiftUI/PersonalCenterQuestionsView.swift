@@ -33,12 +33,13 @@ struct NavigationBarModifier: ViewModifier {
   func body(content: Content) -> some View {
     ZStack {
       content
-      VStack {
-        GeometryReader { geometry in
+      VStack { // VStack的尺寸其实就和content一致
+        GeometryReader { geometry in // 获取VStack的尺寸
           Color(self.backgroundColor ?? .clear)
-            .frame(height: geometry.safeAreaInsets.top)
-            .edgesIgnoringSafeArea(.top)
-          Spacer()
+            .frame(height: geometry.safeAreaInsets.top) // 获取VStack上方避让高度，也就是NavigationBar高度
+            .edgesIgnoringSafeArea(.top) // 色块位置会忽视上方安全区域，导致上移，也就正好占据NavigationBar位置
+            
+          Spacer() // 这个视图其实并不起作用，创建原因未知
         }
       }
     }
@@ -65,11 +66,12 @@ struct PersonalCenterQuestionsView: View {
       .ignoresSafeArea(edges: .bottom)) // 影响到NavigationBar背景色，没有覆盖上部安全区域，会露出底部View的本色，从而NavigationBar部分会显示显示出来。
     .navigationTitle("常见问题")
     .navigationBarTitleDisplayMode(.inline)
+//    .navigationBarBackButtonHidden()
     /// 从目前效果来看，其实并不需要这个modifier
     /// 该modifier的作用是在NavigationBar区域创建一个新的视图来填充NavigationBar区域
     /// 从而挡住底层的View背景
     /// 实现充当NavigationBar的背景
-//    .navigationBarColor(backgroundColor: .red, titleColor: .blue) //
+//    .navigationBarColor(backgroundColor: .red, titleColor: .blue) // 实现说明见上方定义
   }
 }
 
