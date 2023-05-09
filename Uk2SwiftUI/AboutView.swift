@@ -63,15 +63,14 @@ struct AboutView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
           
           if hasNewVersion {
-          HStack {
-            Circle()
-              .fill(.red)
-              .frame(width: 7, height: 7)
+            HStack {
+              Circle()
+                .fill(.red)
+                .frame(width: 7, height: 7)
             
-            Text("发现新版本")
-              .font(.custom("PingFangSC-Regular", size: 16))
-              .foregroundColor(.init("TextColor3"))
-          
+              Text("发现新版本")
+                .font(.custom("PingFangSC-Regular", size: 16))
+                .foregroundColor(.init("TextColor3"))
           
               Image("10个人中心_ic_Arrow")
                 .resizable()
@@ -79,11 +78,11 @@ struct AboutView: View {
                 .frame(width: 18, height: 18)
             }
           } else {
-            Text(vm.isCheckingVersion ? "检查中..." :  "已是最新版本")
+            Text(vm.isCheckingVersion ? "检查中..." : "已是最新版本")
               .font(.custom("PingFangSC-Regular", size: 16))
               .foregroundColor(.init("TextColor3"))
               .animation(.default, value: vm.isCheckingVersion)
-              .animation(hasNewVersion ? .default : .none) //避免“已是最新版本”时发生位移动画
+              .animation(hasNewVersion ? .default : .none) // 避免“已是最新版本”时发生位移动画
           }
         }
         .padding(.vertical, 19)
@@ -93,7 +92,6 @@ struct AboutView: View {
           RoundedRectangle(cornerSize: CGSize(width: 16, height: 16))
             .fill(isHover ? .init("BgColor3") : Color.white))
         .padding(.horizontal)
-        
       }
       .buttonStyle(ScrollViewGestureButtonStyle(pressAction: {
         withAnimation {
@@ -145,9 +143,9 @@ struct AboutView: View {
       .padding(.bottom, 49)
       .frame(maxHeight: .infinity, alignment: .bottom)
     }
+    .background(Color("BgColor1")).ignoresSafeArea(edges: [.bottom]) // 影响到NavigationBar背景色
     .navigationTitle("关于")
     .navigationBarTitleDisplayMode(.inline)
-    .navigationBarColor(backgroundColor: .white, titleColor: .init(named: "TextColor1"))
     .fullScreenCover(item: $url, content: { url in
       if let url = URL(string: url) {
         SafariView(url: url)
@@ -155,7 +153,6 @@ struct AboutView: View {
       }
       
     })
-    .background(Color("BgColor1")).ignoresSafeArea(edges: [.bottom])
   }
 }
 

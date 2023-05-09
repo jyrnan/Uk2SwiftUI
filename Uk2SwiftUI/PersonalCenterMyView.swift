@@ -16,13 +16,12 @@ struct PersonalCenterMyView: View {
     ZStack(alignment: .top) {
       Image("Main_backGroundImg")
         .resizable()
-        .ignoresSafeArea()
+        .ignoresSafeArea() // 影响到NavigationBar背景色，因为背景会覆盖最底层View的颜色，从而NavigationBar部分就不显示
       
       Color.white
         .opacity(0.5)
         .ignoresSafeArea()
       
-//      ScrollView {
         VStack(spacing: 10) {
 
           HoverButton(image: "10个人中心_ic_常见问题", text: "常见问题") {
@@ -41,14 +40,12 @@ struct PersonalCenterMyView: View {
             EmptyView().border(.red)
           })
          
-        }.padding(.top, 14)
-//      }
+        }
+        .padding(.top, 14)
     }
     
-//    .navigationBarBackButtonHidden()
     .navigationTitle("我的")
     .navigationBarTitleDisplayMode(.inline)
-    .navigationBarColor(backgroundColor: .clear, titleColor:.init(named: "TextColor1"))
   }
   
 }

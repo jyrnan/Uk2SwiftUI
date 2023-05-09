@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     self.view.backgroundColor = .orange
+    self.navigationItem.title = "VC"
   }
   
   @IBAction func showPrivacyAgreementView(sender: Any?) {
@@ -55,15 +56,15 @@ class ViewController: UIViewController {
     let hostingController = UIHostingController(rootView: sView)
 //    hostingController.title = "我的"
    
-    let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//    let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     /// 为了让后面的ViewController不显示返回按钮的文字，
     /// 需要将当前一个ViewController的backBarButtonItem文字设置成空
-    navigationItem.backBarButtonItem = backBarButton
+//    navigationItem.backBarButtonItem = backBarButton
     
     /// 为了让后面的ViewController不显示返回按钮的文字，
     /// 需要将当前一个ViewController的backBarButtonItem文字设置成空
     /// 这里和上面所指的ViewController不同
-    hostingController.navigationItem.backBarButtonItem = backBarButton
+//    hostingController.navigationItem.backBarButtonItem = backBarButton
    
     self.navigationController?.pushViewController(hostingController, animated: true)
   }
