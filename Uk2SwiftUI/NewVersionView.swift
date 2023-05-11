@@ -43,7 +43,7 @@ struct NewVersionView: View {
 
   var body: some View {
     ZStack(alignment: .top) {
-      RoundedRectangle(cornerSize: CGSize(width: 30, height: 30))
+      Rectangle()
         .foregroundColor(.white)
         .ignoresSafeArea()
         
@@ -124,6 +124,7 @@ struct NewVersionView: View {
       }
       .padding(.horizontal, 30)
     }
+    .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
     .border(borderColor)
   }
 }
