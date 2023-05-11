@@ -81,7 +81,7 @@ struct AboutView: View {
             Text(vm.isCheckingVersion ? "检查中..." : "已是最新版本")
               .font(.custom("PingFangSC-Regular", size: 16))
               .foregroundColor(.init("TextColor3"))
-              .animation(.default, value: vm.isCheckingVersion)
+              .animation(.none, value: vm.isCheckingVersion)
               .animation(hasNewVersion ? .default : .none) // 避免“已是最新版本”时发生位移动画
           }
         }

@@ -52,9 +52,9 @@ struct PersonalCenterMyView: View {
 
 struct PersonalCenterMyView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+//    NavigationView {
       PersonalCenterMyView()
-    }
+//    }
   }
 }
 

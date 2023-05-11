@@ -83,7 +83,10 @@ class VersionCheckViewModel: ObservableObject {
             if let newVersionInfo = versionResult.results.first,  newVersionInfo.version > self.currentVersion {
               self.newVersionInfo = newVersionInfo
             }
-            self.isCheckingVersion = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+              self.isCheckingVersion = false
+            }
+            
           }
         }
       }

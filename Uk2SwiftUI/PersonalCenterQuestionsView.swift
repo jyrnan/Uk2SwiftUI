@@ -98,13 +98,22 @@ struct CellView: View {
         Button {
           withAnimation { showContent.toggle() }
         } label: {
-          Text(qaText.question)
-            .font(.custom("PingFangSC-Regular", size: 16))
-            .foregroundColor(.init("TextColor1"))
-            .multilineTextAlignment(.leading)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .contentShape(Rectangle())
-            .padding(.trailing, 16)
+          HStack{
+            Text(qaText.question)
+              .font(.custom("PingFangSC-Regular", size: 16))
+              .foregroundColor(.init("TextColor1"))
+              .multilineTextAlignment(.leading)
+              .frame(maxWidth: .infinity, alignment: .leading)
+              .contentShape(Rectangle())
+              .padding(.trailing, 16)
+            
+            Image("10个人中心_ic_Arrow")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(width: 18, height: 18)
+              .rotationEffect(.degrees(showContent ? 270 : 90))
+          }
+         
         }
         .buttonStyle(ScrollViewGestureButtonStyle(pressAction: {
           withAnimation {
@@ -112,11 +121,7 @@ struct CellView: View {
           }
         }))
 
-        Image("10个人中心_ic_Arrow")
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-          .frame(width: 18, height: 18)
-          .rotationEffect(.degrees(showContent ? 270 : 90))
+        
       }
       .padding(.horizontal, 18)
       .padding(.top, 20)
