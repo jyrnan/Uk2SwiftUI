@@ -164,7 +164,7 @@ struct PrivacyAgreementView: View {
           .clipShape(Capsule())
           .padding(.top, 2) // 这里因为上一个ZStackView下部有约14的空间，所以只偏移2，实际效果是16
           .padding(.horizontal, 4)
-          .opacity(showBubbleView ? 0 : 1)
+          .opacity(isChecked || showBubbleView ? 0 : 1)
           .onTapGesture {
             withAnimation {
               showBubbleView = true
