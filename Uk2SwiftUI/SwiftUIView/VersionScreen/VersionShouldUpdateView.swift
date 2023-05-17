@@ -11,7 +11,7 @@ import SwiftUI
 
 struct VersionShouldUpdateView: View {
   /// 传入的用来dissmiss UIHostingViewController方法
-  var dismissClosure: (() -> Void)?
+//  var dismissClosure: (() -> Void)?
   
   @StateObject var vm = VersionCheckViewModel()
   
@@ -27,18 +27,18 @@ struct VersionShouldUpdateView: View {
           .onTapGesture {
             if !vm.isForceUpdateVersion {
               vm.showNewVersionView = false
-              dismissClosure?()
+//              dismissClosure?()
             }
           }
         
-        NewVersionView(vm: vm, newVersionViewHeight: $newVersionViewHeight, dismissClosure: dismissClosure)
+        NewVersionView(vm: vm, newVersionViewHeight: $newVersionViewHeight)
           .frame(height: newVersionViewHeight)
           .offset(y: vm.showNewVersionView ? 0 : newVersionViewHeight )
       }
       .ignoresSafeArea(edges: .bottom)
       .animation(.default, value: vm.showNewVersionView)
       .onAppear{
-        vm.checkNewVersion(id: "1523021399")
+//        vm.checkNewVersion(id: "1523021399")
         vm.showNewVersionView = true
       }
     }

@@ -27,7 +27,7 @@ class VersionCheckViewModel: ObservableObject {
   let currentVersion: String = "1.0.0"
   
   /// 决定是否需要强制升级
-  var isForceUpdateVersion:Bool { true }
+  var isForceUpdateVersion:Bool { false }
   
   
   func checkNewVersion(id: String = "6447176780") {
