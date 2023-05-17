@@ -68,6 +68,8 @@ class VersionCheckViewModel: ObservableObject {
   @Published var isCheckingVersion = false
   let currentVersion: String = "1.0.0"
   
+  var isForceUpdateVersion:Bool { true }
+  
   
   func checkNewVersion(id: String = "6447176780") {
     

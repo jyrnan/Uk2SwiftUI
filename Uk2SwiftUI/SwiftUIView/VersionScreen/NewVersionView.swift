@@ -79,7 +79,7 @@ struct NewVersionView: View {
         .frame(height: scrollViewHeight)
         .onPreferenceChange(TextHeightKey.self) {
           textHeight = $0
-          ///整个窗口的高度是ScrollView的高度加上上部和下部空间
+          ///整个窗口的高度是ScrollView的高度加上上部空间188和下部空间108
           ///这个高度会返回到上层View来决定偏移动画数值
           newVersionViewHeight = 188 + scrollViewHeight + 108
         }
@@ -91,16 +91,18 @@ struct NewVersionView: View {
         // MARK: - 底部按钮
           
         HStack(spacing: 11) {
-          Button {
-            vm.showNewVersionView = false
-          } label: {
-            Text("暂不处理")
-              .font(.system(size: 16))
-              .foregroundColor(.init("TextColor1"))
-              .frame(height: 44)
-              .frame(maxWidth: .infinity)
-              .background(Color("BgColor4"))
-              .clipShape(Capsule())
+          if !vm.isForceUpdateVersion {
+            Button {
+              vm.showNewVersionView = false
+            } label: {
+              Text("暂不处理")
+                .font(.system(size: 16))
+                .foregroundColor(.init("TextColor1"))
+                .frame(height: 44)
+                .frame(maxWidth: .infinity)
+                .background(Color("BgColor4"))
+                .clipShape(Capsule())
+            }
           }
             
           Button {
@@ -124,6 +126,7 @@ struct NewVersionView: View {
       }
       .padding(.horizontal, 30)
     }
+    .frame(height: newVersionViewHeight)
     .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
     .border(borderColor)
   }

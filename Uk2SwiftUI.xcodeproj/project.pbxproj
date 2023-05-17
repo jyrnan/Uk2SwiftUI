@@ -20,6 +20,8 @@
 		D2A1AF8A29E52E8200F9967B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A1AF8829E52E8200F9967B /* Main.storyboard */; };
 		D2A1AF8C29E52E8200F9967B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A1AF8B29E52E8200F9967B /* Assets.xcassets */; };
 		D2A1AF8F29E52E8200F9967B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A1AF8D29E52E8200F9967B /* LaunchScreen.storyboard */; };
+		D2DB72222A13B580004ADBE2 /* VersionShouldUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB72212A13B580004ADBE2 /* VersionShouldUpdateView.swift */; };
+		D2DB72262A13B76D004ADBE2 /* MainViewVersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB72252A13B76D004ADBE2 /* MainViewVersionChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		D2A1AF8B29E52E8200F9967B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2A1AF8E29E52E8200F9967B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A1AF9029E52E8200F9967B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2DB72212A13B580004ADBE2 /* VersionShouldUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionShouldUpdateView.swift; sourceTree = "<group>"; };
+		D2DB72252A13B76D004ADBE2 /* MainViewVersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewVersionChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,18 +78,44 @@
 				D2A1AF8429E52E8200F9967B /* SceneDelegate.swift */,
 				D2A1AF8629E52E8200F9967B /* ViewController.swift */,
 				D2A1AF8829E52E8200F9967B /* Main.storyboard */,
-				D211BCD229E53012000CC94C /* PrivacyAgreementView.swift */,
-				D259F1EB29E79528000B17B6 /* PersonalCenterMyView.swift */,
-				D259F1E929E76868000B17B6 /* PersonalCenterQuestionsView.swift */,
-				D2563B1529EE700300B5B67F /* VersionContainerView.swift */,
-				D2563B1129EE4CB400B5B67F /* AboutView.swift */,
-				D2563B1329EE6A2400B5B67F /* NewVersionView.swift */,
-				D2563B1729EF9EEF00B5B67F /* SafariView.swift */,
+				D2DB72272A13BBF5004ADBE2 /* SwiftUIView */,
 				D2A1AF8B29E52E8200F9967B /* Assets.xcassets */,
 				D2A1AF8D29E52E8200F9967B /* LaunchScreen.storyboard */,
 				D2A1AF9029E52E8200F9967B /* Info.plist */,
 			);
 			path = Uk2SwiftUI;
+			sourceTree = "<group>";
+		};
+		D2DB72232A13B689004ADBE2 /* VersionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D2DB72252A13B76D004ADBE2 /* MainViewVersionChecker.swift */,
+				D2563B1529EE700300B5B67F /* VersionContainerView.swift */,
+				D2DB72212A13B580004ADBE2 /* VersionShouldUpdateView.swift */,
+				D2563B1129EE4CB400B5B67F /* AboutView.swift */,
+				D2563B1329EE6A2400B5B67F /* NewVersionView.swift */,
+			);
+			path = VersionScreen;
+			sourceTree = "<group>";
+		};
+		D2DB72242A13B6A4004ADBE2 /* PersonalCenter */ = {
+			isa = PBXGroup;
+			children = (
+				D259F1EB29E79528000B17B6 /* PersonalCenterMyView.swift */,
+				D259F1E929E76868000B17B6 /* PersonalCenterQuestionsView.swift */,
+			);
+			path = PersonalCenter;
+			sourceTree = "<group>";
+		};
+		D2DB72272A13BBF5004ADBE2 /* SwiftUIView */ = {
+			isa = PBXGroup;
+			children = (
+				D211BCD229E53012000CC94C /* PrivacyAgreementView.swift */,
+				D2DB72242A13B6A4004ADBE2 /* PersonalCenter */,
+				D2DB72232A13B689004ADBE2 /* VersionScreen */,
+				D2563B1729EF9EEF00B5B67F /* SafariView.swift */,
+			);
+			path = SwiftUIView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,9 +191,11 @@
 			files = (
 				D259F1EA29E76868000B17B6 /* PersonalCenterQuestionsView.swift in Sources */,
 				D2A1AF8729E52E8200F9967B /* ViewController.swift in Sources */,
+				D2DB72262A13B76D004ADBE2 /* MainViewVersionChecker.swift in Sources */,
 				D2563B1429EE6A2400B5B67F /* NewVersionView.swift in Sources */,
 				D259F1EC29E79528000B17B6 /* PersonalCenterMyView.swift in Sources */,
 				D2563B1829EF9EEF00B5B67F /* SafariView.swift in Sources */,
+				D2DB72222A13B580004ADBE2 /* VersionShouldUpdateView.swift in Sources */,
 				D2563B1629EE700300B5B67F /* VersionContainerView.swift in Sources */,
 				D2A1AF8329E52E8200F9967B /* AppDelegate.swift in Sources */,
 				D211BCD329E53012000CC94C /* PrivacyAgreementView.swift in Sources */,

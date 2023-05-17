@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCW-Hi-14P">
-                                <rect key="frame" x="159" y="248" width="75" height="35"/>
+                                <rect key="frame" x="157" y="248" width="80" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Privacy"/>
                                 <connections>
                                     <action selector="showPrivacyAgreementViewWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M1V-RM-CVu"/>
                                 </connections>
@@ -33,6 +33,15 @@
                                 <buttonConfiguration key="configuration" style="filled" title="person"/>
                                 <connections>
                                     <action selector="showPersonCenterViewActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CHq-EK-JJO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lvv-cu-akM">
+                                <rect key="frame" x="158" y="334" width="81" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Version"/>
+                                <connections>
+                                    <action selector="showVersionCheckViewActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RbI-7m-cXH"/>
                                 </connections>
                             </button>
                         </subviews>
