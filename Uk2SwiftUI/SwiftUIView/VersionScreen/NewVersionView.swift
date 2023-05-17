@@ -98,7 +98,7 @@ struct NewVersionView: View {
               vm.showNewVersionView = false
 //              dismissClosure?()
             } label: {
-              Text("暂不处理")
+              Text("稍后处理")
                 .font(.system(size: 16))
                 .foregroundColor(.init("TextColor1"))
                 .frame(height: 44)
