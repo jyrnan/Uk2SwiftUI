@@ -22,6 +22,7 @@
 		D2A1AF8F29E52E8200F9967B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A1AF8D29E52E8200F9967B /* LaunchScreen.storyboard */; };
 		D2DB72222A13B580004ADBE2 /* VersionShouldUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB72212A13B580004ADBE2 /* VersionShouldUpdateView.swift */; };
 		D2DB72262A13B76D004ADBE2 /* MainViewVersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB72252A13B76D004ADBE2 /* MainViewVersionChecker.swift */; };
+		D2DB72292A1487C6004ADBE2 /* VersionCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB72282A1487C6004ADBE2 /* VersionCheckViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D2A1AF9029E52E8200F9967B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2DB72212A13B580004ADBE2 /* VersionShouldUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionShouldUpdateView.swift; sourceTree = "<group>"; };
 		D2DB72252A13B76D004ADBE2 /* MainViewVersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewVersionChecker.swift; sourceTree = "<group>"; };
+		D2DB72282A1487C6004ADBE2 /* VersionCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				D2DB72252A13B76D004ADBE2 /* MainViewVersionChecker.swift */,
+				D2DB72282A1487C6004ADBE2 /* VersionCheckViewModel.swift */,
 				D2563B1529EE700300B5B67F /* VersionContainerView.swift */,
 				D2DB72212A13B580004ADBE2 /* VersionShouldUpdateView.swift */,
 				D2563B1129EE4CB400B5B67F /* AboutView.swift */,
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D259F1EA29E76868000B17B6 /* PersonalCenterQuestionsView.swift in Sources */,
+				D2DB72292A1487C6004ADBE2 /* VersionCheckViewModel.swift in Sources */,
 				D2A1AF8729E52E8200F9967B /* ViewController.swift in Sources */,
 				D2DB72262A13B76D004ADBE2 /* MainViewVersionChecker.swift in Sources */,
 				D2563B1429EE6A2400B5B67F /* NewVersionView.swift in Sources */,

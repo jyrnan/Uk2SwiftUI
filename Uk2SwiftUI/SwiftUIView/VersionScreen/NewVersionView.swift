@@ -34,6 +34,8 @@ struct NewVersionView: View {
   
   @State var borderColor: Color = .clear
   
+  var dismissClosure: (() -> Void)?
+  
   var text: String {
     guard let text = vm.newVersionInfo?.releaseNotes else {
       return "Bug fixed"
@@ -94,6 +96,7 @@ struct NewVersionView: View {
           if !vm.isForceUpdateVersion {
             Button {
               vm.showNewVersionView = false
+              dismissClosure?()
             } label: {
               Text("暂不处理")
                 .font(.system(size: 16))

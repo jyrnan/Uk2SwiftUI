@@ -34,7 +34,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showVersionCheckViewAction(sender: Any?) {
-//    versionChecker?.checkNewVersion(id: "1523021399")
+    versionChecker.checkNewVersion()
   }
 
   func configurePrivacyAgreementView() {

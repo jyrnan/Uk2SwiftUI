@@ -10,6 +10,7 @@ import SwiftUI
 //MARK: - 用于首页提示升级的版本视图
 
 struct VersionShouldUpdateView: View {
+  /// 传入的用来dissmiss UIHostingViewController方法
   var dismissClosure: (() -> Void)?
   
   @StateObject var vm = VersionCheckViewModel()
@@ -24,10 +25,13 @@ struct VersionShouldUpdateView: View {
           .opacity(vm.showNewVersionView ? 0.6 : 0)
           .ignoresSafeArea()
           .onTapGesture {
-            vm.showNewVersionView = false
+            if !vm.isForceUpdateVersion {
+              vm.showNewVersionView = false
+              dismissClosure?()
+            }
           }
         
-        NewVersionView(vm: vm, newVersionViewHeight: $newVersionViewHeight)
+        NewVersionView(vm: vm, newVersionViewHeight: $newVersionViewHeight, dismissClosure: dismissClosure)
           .frame(height: newVersionViewHeight)
           .offset(y: vm.showNewVersionView ? 0 : newVersionViewHeight )
       }
