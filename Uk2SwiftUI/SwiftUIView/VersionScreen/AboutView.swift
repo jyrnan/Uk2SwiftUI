@@ -144,6 +144,7 @@ struct AboutView: View {
       .frame(maxHeight: .infinity, alignment: .bottom)
     }
     .background(Color("BgColor1")).ignoresSafeArea(edges: [.bottom]) // 影响到NavigationBar背景色
+    .navigationBarBackButtonHidden()
     .navigationTitle("关于")
     .navigationBarTitleDisplayMode(.inline)
     .fullScreenCover(item: $url, content: { url in

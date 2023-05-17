@@ -43,7 +43,7 @@ struct PersonalCenterMyView: View {
         }
         .padding(.top, 14)
     }
-//    .navigationBarBackButtonHidden()
+    .navigationBarBackButtonHidden()
     .navigationTitle("我的")
     .navigationBarTitleDisplayMode(.inline)
   }
