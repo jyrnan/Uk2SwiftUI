@@ -24,7 +24,10 @@ class VersionCheckViewModel: ObservableObject {
   @Published var newVersionInfo: VersionInfo?
   
   @Published var isCheckingVersion = false
-  let currentVersion: String = "1.0.0"
+    var currentVersion: String {
+        guard let infoDictionary = Bundle.main.infoDictionary, let majorVersion = infoDictionary["CFBundleShortVersionString"] as? String   else {return "1.0.0"}
+        return majorVersion
+    }
   
   /// 决定是否需要强制升级
   var isForceUpdateVersion:Bool { return self.newVersionInfo?.releaseNotes.range(of: "造成闪退") != nil }

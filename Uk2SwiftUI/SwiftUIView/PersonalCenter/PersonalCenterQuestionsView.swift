@@ -107,11 +107,12 @@ struct CellView: View {
               .contentShape(Rectangle())
               .padding(.trailing, 16)
             
-            Image("10个人中心_ic_Arrow")
+            Image("10个人中心_ic_Arrow") //图片需改成向下箭头 PersonalCenterQuestionsView.swift:114
               .resizable()
               .aspectRatio(contentMode: .fit)
               .frame(width: 18, height: 18)
-              .rotationEffect(.degrees(showContent ? 270 : 90))
+              .rotationEffect(.degrees(showContent ? 270 : 90)) // 改成 -180 ： 0
+              .flipsForRightToLeftLayoutDirection(true) //适应RTL语言环境
           }
          
         }

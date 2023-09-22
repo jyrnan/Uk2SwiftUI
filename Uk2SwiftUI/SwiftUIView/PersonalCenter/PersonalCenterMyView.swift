@@ -52,9 +52,9 @@ struct PersonalCenterMyView: View {
 
 struct PersonalCenterMyView_Previews: PreviewProvider {
   static var previews: some View {
-//    NavigationView {
+    NavigationView {
       PersonalCenterMyView()
-//    }
+    }
   }
 }
 
@@ -89,6 +89,7 @@ struct HoverButton: View {
           .resizable()
           .aspectRatio(contentMode: .fill)
           .frame(width: 18, height: 18)
+          .flipsForRightToLeftLayoutDirection(true) //适应RTL语言环境
       }
       .padding()
       .frame(maxWidth: .infinity)
