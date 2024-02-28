@@ -60,14 +60,14 @@ struct PrivacyAgreementView: View {
                         .border(borderColor)
                 }
                 .padding(.horizontal, 0)
-                .onAppear {
-                    for family: String in UIFont.familyNames {
-                        print(family)
-                        for names: String in UIFont.fontNames(forFamilyName: family) {
-                            print("== \(names)")
-                        }
-                    }
-                }
+//                .onAppear {
+//                    for family: String in UIFont.familyNames {
+//                        print(family)
+//                        for names: String in UIFont.fontNames(forFamilyName: family) {
+//                            print("== \(names)")
+//                        }
+//                    }
+//                }
         
                 LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0.01)]), startPoint: .bottom, endPoint: .top)
                     .padding(.trailing, 8)
@@ -193,9 +193,18 @@ struct PrivacyAgreementView: View {
     }
 }
 
+@available(iOS 16.0, *)
 struct PrivacyAgreementView_Previews: PreviewProvider {
+    static var offset: CGFloat = UIScreen.main.bounds.height
     static var previews: some View {
-        PrivacyAgreementView(agreeClosure: {}, cancelClosure: {}, licenseClosure: {})
+        Color.gray
+            .ignoresSafeArea()
+            .overlay {
+                GeometryReader { proxy in
+                    PrivacyAgreementView(agreeClosure: {}, cancelClosure: {}, licenseClosure: {})
+                        .offset(y: offset - 420 - proxy.safeAreaInsets.top)
+                }
+            }
     }
 }
 
