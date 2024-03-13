@@ -30,12 +30,15 @@ class VersionCheckViewModel: ObservableObject {
     }
   
   /// 决定是否需要强制升级
-  var isForceUpdateVersion:Bool { return self.newVersionInfo?.releaseNotes.range(of: "造成闪退") != nil }
+  var isForceUpdateVersion:Bool {
+      
+      return self.newVersionInfo?.releaseNotes.range(of: yanzhongwenti) != nil
+  }
   
   
   func checkNewVersion(id: String = "6447176780") {
     
-    let url = "https://itunes.apple.com/lookup?id=" + id //6447176780 小康在家1523021399
+    let url = "https://itunes.apple.com/cn/lookup?id=" + id //6447176780 小康在家1523021399
     self.isCheckingVersion = true
     print("Checking new version ID: \(id)")
     

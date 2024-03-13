@@ -24,8 +24,9 @@ class MainViewVersionChecker {
     
   /// 注册Publisher方法
   func addObserver() {
-    versionCheckViewModel.$newVersionInfo.dropFirst()
-      .sink { [weak self] versionInfo in
+    versionCheckViewModel.$newVersionInfo
+          .dropFirst()
+          .sink { [weak self] versionInfo in
       guard let self = self else { return }
       
       print(#line, #function, "$newVersionInfo: \(versionInfo.debugDescription)")
@@ -35,8 +36,9 @@ class MainViewVersionChecker {
     }
     .store(in: &disposeBag)
     
-    versionCheckViewModel.$showNewVersionView.dropFirst()
-      .sink { [weak self] showNewVersionView in
+    versionCheckViewModel.$showNewVersionView
+          .dropFirst()
+          .sink { [weak self] showNewVersionView in
       guard let self = self else { return }
       
       print(#line, #function, "$showNewVersionView:\(showNewVersionView)")
@@ -59,18 +61,21 @@ class MainViewVersionChecker {
   
   func showVersionShouldUpdateView() {
     guard viewController?.presentedViewController == nil else { return }
-    viewController?.present(hostingController, animated: false)
+      self.viewController?.present(self.hostingController, animated: false)
+      
+//      DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+//          self?.viewController?.present(self!.hostingController!, animated: false)
+//      }
   }
   
   /// 用来消除UIHostingVC的方法，延迟0.2秒调用
   func dismissVersionShouldUpdateView() {
-    
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
       self?.viewController?.presentedViewController?.dismiss(animated: false)
     }
   }
 
   func checkNewVersion() {
-    versionCheckViewModel.checkNewVersion(id: "1523021399")
+    versionCheckViewModel.checkNewVersion(id: "6447176780")
   }
 }

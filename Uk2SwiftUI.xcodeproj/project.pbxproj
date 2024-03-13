@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D211BCD329E53012000CC94C /* PrivacyAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211BCD229E53012000CC94C /* PrivacyAgreementView.swift */; };
+		D2401CC62BA1A5E0006D7378 /* XYStringLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2401CC52BA1A5E0006D7378 /* XYStringLocalized.swift */; };
 		D2563B1229EE4CB400B5B67F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2563B1129EE4CB400B5B67F /* AboutView.swift */; };
 		D2563B1429EE6A2400B5B67F /* NewVersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2563B1329EE6A2400B5B67F /* NewVersionView.swift */; };
 		D2563B1629EE700300B5B67F /* VersionContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2563B1529EE700300B5B67F /* VersionContainerView.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		D211BCD229E53012000CC94C /* PrivacyAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAgreementView.swift; sourceTree = "<group>"; };
+		D2401CC52BA1A5E0006D7378 /* XYStringLocalized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYStringLocalized.swift; sourceTree = "<group>"; };
 		D2563B1129EE4CB400B5B67F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		D2563B1329EE6A2400B5B67F /* NewVersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVersionView.swift; sourceTree = "<group>"; };
 		D2563B1529EE700300B5B67F /* VersionContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionContainerView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				D2A1AF8229E52E8200F9967B /* AppDelegate.swift */,
 				D2A1AF8429E52E8200F9967B /* SceneDelegate.swift */,
 				D2A1AF8629E52E8200F9967B /* ViewController.swift */,
+				D2401CC52BA1A5E0006D7378 /* XYStringLocalized.swift */,
 				D2A1AF8829E52E8200F9967B /* Main.storyboard */,
 				D2DB72272A13BBF5004ADBE2 /* SwiftUIView */,
 				D2A1AF8B29E52E8200F9967B /* Assets.xcassets */,
@@ -205,6 +208,7 @@
 				D211BCD329E53012000CC94C /* PrivacyAgreementView.swift in Sources */,
 				D2563B1229EE4CB400B5B67F /* AboutView.swift in Sources */,
 				D2A1AF8529E52E8200F9967B /* SceneDelegate.swift in Sources */,
+				D2401CC62BA1A5E0006D7378 /* XYStringLocalized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

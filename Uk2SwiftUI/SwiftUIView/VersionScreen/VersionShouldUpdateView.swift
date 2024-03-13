@@ -37,10 +37,15 @@ struct VersionShouldUpdateView: View {
       }
       .ignoresSafeArea(edges: .bottom)
       .animation(.default, value: vm.showNewVersionView)
+      .onDisappear{
+          print("onDisappear")
+      }
       .onAppear{
 //        vm.checkNewVersion(id: "1523021399")
+          print("onAppear")
         vm.showNewVersionView = true
       }
+    
     }
 }
 

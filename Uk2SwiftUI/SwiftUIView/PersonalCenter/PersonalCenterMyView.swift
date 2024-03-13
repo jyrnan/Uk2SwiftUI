@@ -24,7 +24,7 @@ struct PersonalCenterMyView: View {
       
         VStack(spacing: 10) {
 
-          HoverButton(image: "10个人中心_ic_常见问题", text: "常见问题") {
+            HoverButton(image: "10个人中心_ic_常见问题", text: "常见问题") {
             selection = 1
           }
           
@@ -52,9 +52,9 @@ struct PersonalCenterMyView: View {
 
 struct PersonalCenterMyView_Previews: PreviewProvider {
   static var previews: some View {
-    NavigationView {
+//    NavigationView {
       PersonalCenterMyView()
-    }
+//    }
   }
 }
 
@@ -63,10 +63,10 @@ struct PersonalCenterMyView_Previews: PreviewProvider {
 struct HoverButton: View {
   @State var isHoverAboutButton: Bool = false
   var image: String
-  var text: String
+  var text: LocalizedStringKey
   var action: () -> Void
   
-  init(image: String, text: String, action: @escaping () -> Void) {
+  init(image: String, text: LocalizedStringKey, action: @escaping () -> Void) {
     self.image = image
     self.text = text
     self.action = action
@@ -81,6 +81,7 @@ struct HoverButton: View {
           .resizable()
           .aspectRatio(contentMode: .fill)
           .frame(width: 30, height: 30)
+          .flipsForRightToLeftLayoutDirection(true)
         Text(text)
           .font(.system(size: 16))
           .foregroundColor(.init("TextColor1"))
@@ -89,7 +90,7 @@ struct HoverButton: View {
           .resizable()
           .aspectRatio(contentMode: .fill)
           .frame(width: 18, height: 18)
-          .flipsForRightToLeftLayoutDirection(true) //适应RTL语言环境
+          .flipsForRightToLeftLayoutDirection(true)
       }
       .padding()
       .frame(maxWidth: .infinity)

@@ -109,7 +109,12 @@ struct NewVersionView: View {
           }
             
           Button {
-            if let url = URL(string: "https://apps.apple.com/us/app/yimutiscreen/id6447176780") {
+              //https://testflight.apple.com/join/E6u4RzrS
+              //https://apps.apple.com/us/app/%E6%98%93%E4%BA%92%E5%8A%A8/id1523021399
+              //https://apps.apple.com/us/app/yimutiscreen/id6447176780
+
+            if let url = URL(string: "https://apps.apple.com/us/app/yimutiscreen/id6447176780")
+              {
               openURL(url) { accepted in //  通过设置 completion 闭包，可以检查是否已完成 URL 的开启。状态由 OpenURLAction 提供
                 print(accepted ? "Success" : "Failure")
               }

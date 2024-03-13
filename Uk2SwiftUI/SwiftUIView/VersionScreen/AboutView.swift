@@ -28,7 +28,7 @@ struct AboutView: View {
           .aspectRatio(contentMode: .fill)
           .frame(width: 70, height: 70)
           .onTapGesture {
-            vm.checkNewVersion(id: "1523021399")
+//            vm.checkNewVersion(id: "1523021399")
           }
           
         Image("易投屏")
@@ -40,7 +40,7 @@ struct AboutView: View {
           .padding(.horizontal, 2).border(borderColor)
           .padding(.top, 10)
           
-        Text("版本V" + vm.currentVersion)
+        Text("版本V\(vm.currentVersion)")
           .font(.custom("PingFangSC-Regular", size: 14))
           .foregroundColor(.init("TextColor2"))
           .padding(.top, 1)
@@ -78,7 +78,7 @@ struct AboutView: View {
                 .frame(width: 18, height: 18)
             }
           } else {
-            Text(vm.isCheckingVersion ? "检查中..." : "已是最新版本")
+              Text(vm.isCheckingVersion ? "检查中..." : "已是最新版本").fixedSize(horizontal: true, vertical: false)
               .font(.custom("PingFangSC-Regular", size: 16))
               .foregroundColor(.init("TextColor3"))
               .animation(.none, value: vm.isCheckingVersion)
